@@ -1,44 +1,44 @@
 <?php
 /*
- * $data ĞèÒª¼ÓÃÜ»ò½âÃÜµÄ²ÎÊı
- * $key ¼ÓÃÜ»ò½âÃÜµÄÃÜÔ¿
+ * $data éœ€è¦åŠ å¯†æˆ–è§£å¯†çš„å‚æ•°
+ * $key åŠ å¯†æˆ–è§£å¯†çš„å¯†é’¥
 */
 	class authc {
-		public $ks; //ÃÜÔ¿³¤¶È
-		public $td; //¼ÓÃÜÀàĞÍ
-		public $iv; //³õÊ¼ÏòÁ¿
+		public $ks; //å¯†é’¥é•¿åº¦
+		public $td; //åŠ å¯†ç±»å‹
+		public $iv; //åˆå§‹å‘é‡
 		public $size;
 		public function __construct() {
 
 		}
 
 
-		//¼ÓÃÜ
+		//åŠ å¯†
 		public function encode($data,$key) {
-			$this->td = mcrypt_module_open(MCRYPT_DES,'', 'ecb', '');  //Ê¹ÓÃMCRYPT_DESËã·¨,ecbÄ£Ê½
-			$this->size = mcrypt_enc_get_iv_size($this->td); //ÉèÖÃ³õÊ¼ÏòÁ¿´óĞ¡
-			$this->iv = mcrypt_create_iv($this->size,MCRYPT_RAND); //´´½¨³õÊ¼ÏòÁ¿
-			$this->ks = mcrypt_enc_get_key_size($this->td); //·µ»ØËùÖ§³ÖµÄ×î´óµÄÃÜÔ¿³¤¶È(×Ö½Ú)
-			$keys = substr($key, 0, $this->ks); //ÉèÖÃÃÜÔ¿
-			mcrypt_generic_init($this->td, $keys, $this->iv); //³õÊ¼´¦Àí
-            $data = mcrypt_generic($this->td, $data);  //¼ÓÃÜ
-            mcrypt_generic_deinit($this->td); //½áÊø´¦Àí
-            mcrypt_module_close($this->td); //½áÊø
+			$this->td = mcrypt_module_open(MCRYPT_DES,'', 'ecb', '');  //ä½¿ç”¨MCRYPT_DESç®—æ³•,ecbæ¨¡å¼
+			$this->size = mcrypt_enc_get_iv_size($this->td); //è®¾ç½®åˆå§‹å‘é‡å¤§å°
+			$this->iv = mcrypt_create_iv($this->size,MCRYPT_RAND); //åˆ›å»ºåˆå§‹å‘é‡
+			$this->ks = mcrypt_enc_get_key_size($this->td); //è¿”å›æ‰€æ”¯æŒçš„æœ€å¤§çš„å¯†é’¥é•¿åº¦(å­—èŠ‚)
+			$keys = substr($key, 0, $this->ks); //è®¾ç½®å¯†é’¥
+			mcrypt_generic_init($this->td, $keys, $this->iv); //åˆå§‹å¤„ç†
+            $data = mcrypt_generic($this->td, $data);  //åŠ å¯†
+            mcrypt_generic_deinit($this->td); //ç»“æŸå¤„ç†
+            mcrypt_module_close($this->td); //ç»“æŸ
 			return $data;
 		} 
 
-		//½âÃÜ
+		//è§£å¯†
 		public function decode($data,$key) {
-			$this->td = mcrypt_module_open(MCRYPT_DES,'', 'ecb', '');  //Ê¹ÓÃMCRYPT_DESËã·¨,ecbÄ£Ê½
-			$this->size = mcrypt_enc_get_iv_size($this->td); //ÉèÖÃ³õÊ¼ÏòÁ¿´óĞ¡
-			$this->iv = mcrypt_create_iv($this->size,MCRYPT_RAND); //´´½¨³õÊ¼ÏòÁ¿
-			$this->ks = mcrypt_enc_get_key_size($this->td); //·µ»ØËùÖ§³ÖµÄ×î´óµÄÃÜÔ¿³¤¶È(×Ö½Ú)
-			$keys = substr($key, 0, $this->ks); //»ñÈ¡KEY³¤¶È
-			mcrypt_generic_init($this->td, $keys, $this->iv); //³õÊ¼½âÃÜ´¦Àí
-            $data = mdecrypt_generic($this->td, $data); //½âÃÜ
-            $data = trim($data) . "\n"; //½âÃÜºó,¿ÉÄÜ»áÓĞºóĞøµÄ\0,ĞèÈ¥µô 
-            mcrypt_generic_deinit($this->td); //½áÊø
-            mcrypt_module_close($this->td); //½áÊø
+			$this->td = mcrypt_module_open(MCRYPT_DES,'', 'ecb', '');  //ä½¿ç”¨MCRYPT_DESç®—æ³•,ecbæ¨¡å¼
+			$this->size = mcrypt_enc_get_iv_size($this->td); //è®¾ç½®åˆå§‹å‘é‡å¤§å°
+			$this->iv = mcrypt_create_iv($this->size,MCRYPT_RAND); //åˆ›å»ºåˆå§‹å‘é‡
+			$this->ks = mcrypt_enc_get_key_size($this->td); //è¿”å›æ‰€æ”¯æŒçš„æœ€å¤§çš„å¯†é’¥é•¿åº¦(å­—èŠ‚)
+			$keys = substr($key, 0, $this->ks); //è·å–KEYé•¿åº¦
+			mcrypt_generic_init($this->td, $keys, $this->iv); //åˆå§‹è§£å¯†å¤„ç†
+            $data = mdecrypt_generic($this->td, $data); //è§£å¯†
+            $data = trim($data) . "\n"; //è§£å¯†å,å¯èƒ½ä¼šæœ‰åç»­çš„\0,éœ€å»æ‰ 
+            mcrypt_generic_deinit($this->td); //ç»“æŸ
+            mcrypt_module_close($this->td); //ç»“æŸ
             return $data;
 		}
 	}
