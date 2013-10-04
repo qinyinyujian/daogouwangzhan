@@ -1,4 +1,8 @@
-<?php require 'lib/config.php'?>
+<?php 
+require 'lib/config.php';
+require 'authc.php';
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
@@ -14,9 +18,19 @@
 <body>
 	<!-- 顶端 -->
 	<div class="top">
-		<img alt="">
 		<!-- logo备用 -->
+		<img alt="">
+		<!-- 检测登陆状态 -->
 		<div class="user">
-    <?php echo '登陆';?>
-  </div>
-	</div>
+<?php 
+
+	if (isset($_COOKIE['name'])) {
+		echo "$_COOKIE[name]";
+	}
+	else { 
+		echo "登陆";
+	}
+	
+?>
+  	</div>
+		</div>
