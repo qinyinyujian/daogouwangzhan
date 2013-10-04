@@ -1,6 +1,6 @@
 @CHARSET "UTF-8";
 
-/* div.top {
+div.top {
 	height: 30px;
 	background: #191919;
 	position: fixed;
@@ -10,11 +10,10 @@
 	color: #fffcf3;
 	top: 0;
 }
-*/
 
 div.box {
 	background-color: #FFF;
-	position: fixed;
+	height: auto;
 }
 
 div.content {
