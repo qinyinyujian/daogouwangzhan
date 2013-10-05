@@ -10,7 +10,7 @@ if (!preg_match($ce, "$_POST[email]")){
 	$y = "0";
 }
 
-$db = new mysqli($sqln,$sqlu,$sqlp,$sqld) or die("连接错误" . mysqli_error($db));
+$db = new mysqli(sqln,sqlu,sqlp,sqld) or die("连接错误" . mysqli_error($db));
 $query = "SELECT user_email FROM `user` WHERE user_email = '$_POST[email]' ";
 $result = $db->query($query) or die("连接错误" . mysqli_error($db));
 $db->close();
@@ -26,7 +26,7 @@ if (!preg_match($cn, "$_POST[user]")){
 	$y= "0";
 }
 
-$db = new mysqli($sqln,$sqlu,$sqlp,$sqld) or die("连接错误" . mysqli_error($db));
+$db = new mysqli(sqln,sqlu,sqlp,sqld) or die("连接错误" . mysqli_error($db));
 $query = "SELECT user_email FROM `user` WHERE user_name = '$_POST[user]' ";
 $result = $db->query($query) or die("连接错误" . mysqli_error($db));
 $db->close();
@@ -41,7 +41,7 @@ $pass = md5(crypt(md5("$_POST[pass]"),"$_POST[pass]"));
 //帐号密码入库
 $rt = date("Y-m-d");
 if ($y="1"){
-	$db = new mysqli($sqln,$sqlu,$sqlp,$sqld) or die("连接错误" . mysqli_error($db));
+	$db = new mysqli(sqln,sqlu,sqlp,sqld) or die("连接错误" . mysqli_error($db));
 	$query = "INSERT INTO user(user_email,
 				user_name,
 				user_pass,
