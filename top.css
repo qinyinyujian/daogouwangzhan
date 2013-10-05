@@ -1,26 +1,44 @@
 @CHARSET "UTF-8";
 
 div.top {
-	height: 30px;
+	/* [disabled]height: 30px; */
 	background: #191919;
-	position: fixed;
-	right: 0;
+	position: absolute;
 	left: 0;
-	z-index: 9;
 	color: #fffcf3;
 	top: 0;
+	height:40px;
+	width:100%;
+	z-index:9;
+}
+	
+div.user {
+	position:fixed;
+	margin-top:auto;
+	float: right;
+	//float: center;
+	right:1%;
+	top:10px;
+}
+div.user>a {
+	color:#FFF;
+	 text-decoration: none
 }
 
 div.box {
 	background-color: #FFF;
-	height: auto;
+	position: absolute;
+	clip: rect(auto,auto,auto,auto);
+	left: 11px;
+	top: 8%;
+	height:auto;
 }
 
 div.content {
 	color: #242424;
 	font-size: 100%;
 	height: 300px; /* 高度 */
-	width: 200px; /* 宽度 */
+	width: 280px; /* 宽度 */
 	border: 1px solid #CCCCCC; /* 虛線邊框 1 像素 灰色色*/
 	margin: 4px; /* 四周邊界*/
 	float: left;

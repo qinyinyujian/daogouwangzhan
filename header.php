@@ -16,21 +16,22 @@ require 'authc.php';
 </head>
 
 <body>
+<div class="neirong">
 	<!-- 顶端 -->
 	<div class="top">
 		<!-- logo备用 -->
+		<!--<div class="logo">
 		<img alt="">
+	</div>-->
 		<!-- 检测登陆状态 -->
-		<div class="user">
+        <div class="user">
 <?php 
-
 	if (isset($_COOKIE['name'])) {
-		echo "$_COOKIE[name]";
+		echo "<p>$_COOKIE[name]</p>";
 	}
 	else { 
-		echo "登陆";
-	}
-	
+		echo "<a class=\"login\" href=\"login.php\">登陆</a>  <a class=\"login\" href=\"reg.php\">注册</a>";
+	}	
 ?>
-  	</div>
-		</div>
+</div>
+</div>
