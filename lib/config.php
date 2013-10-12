@@ -1,6 +1,7 @@
 <?php
-$wwwtitle = "我的衣柜"; /* 网站标题 */
-define("sqln", "127.0.0.1");
+define ("www","http://127.0.0.1/"); //网站域名
+define("wwwtitle", "我的衣柜"); //网站标题
+define("sqln", "127.0.0.1"); 
 define("sqlu", "yigui");
 define("sqlp", "wobu1008");
 define("sqld", "yigui");
