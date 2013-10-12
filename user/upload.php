@@ -4,15 +4,17 @@
         $("#file").change(function() {
             var image = /.+(.JPEG|.jpeg|.JPG|.jpg|.GIF|.gif|.BMP|.bmp|.PNG|.png)$/;
             if ($("#file").val() != '' && image.test($("#file").val()) == true) {
+                $("#upimage").find("div").html("<span>正在上传图片</span>");
                 $("#upimage").submit();
-            } // else {
-               // $("form").find("a").hide();
-            //}
+            }  else {
+                $("#upimage").find("div").html("<span style=\"color:red\">未知图片类型</span>");
+            }
         });
         $("#img_kj").load(function() {
             var data = $(window.frames['img_kj'].document.body).find("img");
             if ( data != null) {
                 $(".box_img").prepend(data);
+                $("#upimage").find("div").text(" ");
             }
         });
     });
@@ -24,7 +26,7 @@
       <li>
         <form id="upimage"action="upload_image.php" method="post" target="img_kj" enctype="multipart/form-data">
           上传图片:
-          <input type="file" name="image" id="file" style="width:155px"/>
+          <input type="file" name="image" id="file" style="width:155px"/> <div></div>
         </form>
       </li>
       <form action="upload_file.php" method="post">
