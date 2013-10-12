@@ -1,5 +1,6 @@
 <?php require 'header.php'; ?>
 <script src="http://127.0.0.1/jq-reg.js"></script>
+<div class="box">
 <form action="reg1.php" method="post"> 
 	<div class="content_r">
 		邮箱账户:<input type="text" id="email" name="email"/>
@@ -24,4 +25,5 @@
 	</div> 
 	<input type="submit" value="提交"/>
 </form>
+</div>
 <?php require 'footer.php';?>
