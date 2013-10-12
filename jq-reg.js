@@ -1,7 +1,7 @@
 $(document).ready(function() {
 
 // 检测邮箱
-	$("#email").blur(function() {
+	$("#email").change(function() {
 		var mail = /^([a-zA-Z0-9]+[_|_|.]?)*[a-zA-Z0-9]+@([a-zA-Z0-9]+[_|_|.]?)*[a-zA-Z0-9]+.[a-zA-Z]{2,4}$/;
 		if (!mail.test($("#email").val())) {
 			$(this).parents(".content_r").find(".box_c").text("邮箱格式不正确");
@@ -13,7 +13,7 @@ $(document).ready(function() {
 	});
 
 //检测用户昵称
-	$("#user").blur(function() {
+	$("#user").change(function() {
 		// 中文必须2个以上、英文3个以上正则表达式
 		var x = /^([\u4e00-\u9fa50-9a-zA-Z]{2,7}|[a-zA-Z0-9]{3,16})$/g
 		var s = $("#user").val();
@@ -27,7 +27,7 @@ $(document).ready(function() {
 	});
 
 // 检测密码
-	$("#pass").blur(function(){
+	$("#pass").change(function(){
 		var p = $("#pass").val().length;
 		if (p <=5 || p >32 ){
 			$(this).parents(".content_r").find(".box_c").text("密码至少6-32位");
@@ -37,7 +37,7 @@ $(document).ready(function() {
 	});
 
 // 检测密码相等
-	$("#checkpass").blur(function(){
+	$("#checkpass").change(function(){
 		if ($("#checkpass").val().length <=5 || $("#checkpass").val().length > 32 ) {
 			$(this).parents(".content_r").find(".box_c").text("密码至少6-32位");
 		} else if ($("#pass").val() != $("#checkpass").val()) {
