@@ -7,38 +7,48 @@ div.top {
 	left: 0;
 	color: #fffcf3;
 	top: 0;
-	height:40px;
+	height:4%;
 	width:100%;
 	z-index:9;
 }
 	
-div.user {
+div.user>ul {
 	position:fixed;
 	margin-top:auto;
 	float: right;
-	//float: center;
 	right:1%;
 	top:10px;
 }
-div.user>a {
-	color:#FFF;
-	 text-decoration: none
+
+div.user>ul {
+	list-style:none;
+	width:auto;
+}
+div.user>ul>li {
+	float:left;
+	padding-left:10px;
 }
 
-div.box {
+a {
+	color:#FFF;
+	text-decoration: none
+}
+
+div.content {
 	background-color: #FFF;
 	position: absolute;
 	clip: rect(auto,auto,auto,auto);
 	left: 11px;
-	top: 8%;
+	top: 5%;
 	height:auto;
 }
 
-div.content {
+div.box {
 	color: #242424;
-	font-size: 100%;
+	font-size: 85%;
+	color: #666;
 	height: 300px; /* 高度 */
-	width: 280px; /* 宽度 */
+	width: 230px; /* 宽度 */
 	border: 1px solid #CCCCCC; /* 虛線邊框 1 像素 灰色色*/
 	margin: 4px; /* 四周邊界*/
 	float: left;
@@ -46,8 +56,25 @@ div.content {
 
 .h1size {
 	font-size: 100%;
+	color: #000;
 }
 
-.user {
+div.box_img{
+	border: 1.5px solid #999;
+	width: 230px;
+	height: 250px;
+	line-height:250px;
+	text-align:center;
+}
+
+div.updata{
 	
+}
+-#file {
+	opacity: 0;
+	position: absolute;
+	z-index: 10;
+	width: 230px;
+	height: 250px;
+	left:0px;
 }
